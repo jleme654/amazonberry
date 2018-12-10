@@ -2,8 +2,9 @@ package br.com.amazonberry.enums;
 
 public enum TipoEmbalagem_Enum {
 
-	SACO_BAG_10_KG(1, "SACO_BAG_10_KG"),
-	ACUCAR (2, "Acucar")
+	BAG_10_KG(1, "SACO_BAG_10_KG"),
+	ACUCAR_KILO_DEFAULT (2, "Acucar KILO Default"), 
+	BAG_6_5_KG (3, "BAG 6.5 KG")
 	;
 
 	public int id;
