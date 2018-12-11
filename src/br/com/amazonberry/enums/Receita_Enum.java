@@ -1,21 +1,13 @@
 package br.com.amazonberry.enums;
 
-public enum Ingrediente_Enum {
+public enum Receita_Enum {
 
-	POLPA_CUPUACU(1, "POLPA_CUPUACU"),
-	ACUCAR (2, "ACUCAR"), 
-	SABORIZANTE (3, "SABORIZANTE"),
-	IMPOSTOS(4, "IMPOSTOS"),
-	ENERGIA (5, "ENERGIA"),
-	AGUA (6, "AGUA"),
-	EMBALAGEM(7, "EMBALAGEM"),
-	FUNCIONARIO (8, "FUNCIONARIO")
-	;
+	CREME_CUPUACU(1, "CREME_CUPUACU");
 
 	public int id;
 	public String nome;
 
-	Ingrediente_Enum(int id, String nome) {
+	Receita_Enum(int id, String nome) {
 		this.id = id;
 		this.nome = nome;
 	}
