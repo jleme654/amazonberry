@@ -6,19 +6,19 @@ import java.util.Scanner;
 import br.com.amazonberry.enums.Ingrediente_Enum;
 import br.com.amazonberry.enums.TipoEmbalagem_Enum;
 import br.com.amazonberry.vo.IngredienteVO;
-import br.com.amazonberry.vo.Receita_VO;
+import br.com.amazonberry.vo.ReceitaVO;
 
 public class Cupuacu_Prod {
 
-	private static Receita_VO receitaCremeDeCupuacu;
+	private static ReceitaVO receitaCremeDeCupuacu;
 	private static ArrayList<IngredienteVO> receita;// = new ArrayList<IngredienteVO>();
 	private static double custoReceita;
 
-	public Cupuacu_Prod(Receita_VO receita) {
+	public Cupuacu_Prod(ReceitaVO receita) {
 		super();
 	}
 
-	public static Receita_VO getReceitaCupuacu() {
+	public static ReceitaVO getReceitaCupuacu() {
 	    receita = new ArrayList<IngredienteVO>();
 		receita.add(getCustoPolpa());//1
 		receita.add(getCustoAcucar());//2
@@ -29,7 +29,7 @@ public class Cupuacu_Prod {
 		receita.add(getCustoEnergia());//7
 		receita.add(getCustoImposto());//8
 
-		receitaCremeDeCupuacu = new Receita_VO();
+		receitaCremeDeCupuacu = new ReceitaVO();
 		receitaCremeDeCupuacu.setReceita(receita);
 		return receitaCremeDeCupuacu;
 	}

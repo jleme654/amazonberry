@@ -10,8 +10,9 @@ public enum TipoEmbalagem_Enum {
 	EMB_500_ML (8, "EMBALAGEM DE 500 MILI LITROS"),
 	EMB_220_ML (9, "EMBALAGEM DE 220 MILI LITROS"),
 	ACUCAR_KILO_DEFAULT (2, "Acucar KILO Default"), 
-	BAG_6_5_KG (3, "BAG 6.5 KG")
-	;
+	BAG_6_5_KG (3, "BAG 6.5 KG"),
+	CX_5_LT (10, "Caixa de 5 litros"),
+	CX_10_LT (11,"Caixa de 10 litros");
 
 	public int id;
 	public String tipo;

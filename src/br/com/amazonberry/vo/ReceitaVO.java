@@ -2,7 +2,7 @@ package br.com.amazonberry.vo;
 
 import java.util.ArrayList;
 
-public class Receita_VO {
+public class ReceitaVO {
 	
 	private ArrayList<IngredienteVO> receita;
 
