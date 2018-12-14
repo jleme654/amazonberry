@@ -5,8 +5,17 @@ import br.com.amazonberry.enums.TipoProduto_Enum;
 
 public class ProdutoVO {
 
+	private Integer id;
 	private TipoEmbalagem_Enum tipoEmbalagem;
 	private TipoProduto_Enum tipoProduto;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public TipoEmbalagem_Enum getTipoEmbalagem() {
 		return tipoEmbalagem;
@@ -26,7 +35,7 @@ public class ProdutoVO {
 
 	@Override
 	public String toString() {
-		return "ProdutoVO [tipoEmbalagem=" + tipoEmbalagem.getTipo() + ", tipoProduto=" + tipoProduto.getTipo() + ", idProduto=" + tipoProduto.getId() +"]";
+		return "ProdutoVO [id=" + id + ", tipoEmbalagem=" + tipoEmbalagem + ", tipoProduto=" + tipoProduto + "]";
 	}
 
 }
