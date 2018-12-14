@@ -9,8 +9,7 @@ public enum Ingrediente_Enum {
 	ENERGIA (5, "ENERGIA"),
 	AGUA (6, "AGUA"),
 	EMBALAGEM(7, "EMBALAGEM"),
-	FUNCIONARIO (8, "FUNCIONARIO")
-	;
+	FUNCIONARIO (8, "FUNCIONARIO");
 
 	public int id;
 	public String nome;

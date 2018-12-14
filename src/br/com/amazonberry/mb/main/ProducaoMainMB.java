@@ -1,14 +1,13 @@
-package br.com.amazonberry.main;
+package br.com.amazonberry.mb.main;
 
 import java.util.Scanner;
 
 import br.com.amazonberry.enums.Receita_Enum;
-import br.com.amazonberry.prod.Cupuacu_Prod;
+import br.com.amazonberry.mb.producao.CupuacuProducaoMB;
 
-public class Producao {
-
-	public static void main(String[] args) {
-
+public class ProducaoMainMB {
+	
+	static void executa() {		
 		for (Receita_Enum item : Receita_Enum.values()) {
 			System.out.println(item.getId() + " - " + item.getNome());
 		}
@@ -16,16 +15,15 @@ public class Producao {
 		int idReceita = in.nextInt();
 		switch (idReceita) {
 		case 1:
-			Cupuacu_Prod.getCustoConvert();
+			CupuacuProducaoMB.getCustoConvert();
 			break;
-
+			
 		default:
 			break;
 		}
-		{
-
-		}
-
 	}
 
+	public static void main(String[] args) {
+		executa();
+	}
 }

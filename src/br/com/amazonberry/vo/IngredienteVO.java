@@ -11,10 +11,10 @@ public class IngredienteVO {
 
 	public double getCustoTotalIngrediente() {
 		return custoTotalIngrediente;
-	}
+	}																																																																																																																																																																																																																																	
 
 	public void setCustoTotalIngrediente(double custoTotalIngrediente) {
-		this.custoTotalIngrediente = custoTotalIngrediente;
+		this.custoTotalIngrediente = custoTotalIngrediente;																																												
 	}
 
 	public String getTipoEmbalagem() {

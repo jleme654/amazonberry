@@ -1,4 +1,4 @@
-package br.com.amazonberry.prod;
+package br.com.amazonberry.mb.producao;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -8,13 +8,13 @@ import br.com.amazonberry.enums.TipoEmbalagem_Enum;
 import br.com.amazonberry.vo.IngredienteVO;
 import br.com.amazonberry.vo.ReceitaVO;
 
-public class Cupuacu_Prod {
+public class CupuacuProducaoMB {
 
 	private static ReceitaVO receitaCremeDeCupuacu;
 	private static ArrayList<IngredienteVO> receita;// = new ArrayList<IngredienteVO>();
 	private static double custoReceita;
 
-	public Cupuacu_Prod(ReceitaVO receita) {
+	public CupuacuProducaoMB(ReceitaVO receita) {
 		super();
 	}
 
@@ -117,7 +117,7 @@ public class Cupuacu_Prod {
 		//
 		IngredienteVO vo = new IngredienteVO();
 		vo.setCustoUnitario(getCustoUnitario());
-		vo.setTipoEmbalagem(TipoEmbalagem_Enum.EMB_10_LT.getTipo());
+		vo.setTipoEmbalagem(TipoEmbalagem_Enum.CAIXA_10LT.getTipo());
 		vo.setId(2);
 		vo.setNome(Ingrediente_Enum.POLPA_CUPUACU.getNome());
 		vo.setQuantidade(3);
