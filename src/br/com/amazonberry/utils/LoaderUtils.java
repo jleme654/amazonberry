@@ -88,8 +88,10 @@ public class LoaderUtils {
 		VendaVO venda = new VendaVO();
 		venda.setDataContagem(HelperUtils.dataDeHoje);
 		venda.setProduto(getProduto1());
-		venda.setQtdeProduto(2);
-		venda.setValorProduto(getValorProduto(2,60));
+		int qtdeProduto = 51;
+		double valorUnitarioProduto = 60;
+		venda.setQtdeProduto(qtdeProduto);
+		venda.setValorProduto(getValorProduto(qtdeProduto,valorUnitarioProduto));
 		
 		VendaVO venda2 = new VendaVO();
 		venda2.setDataContagem(HelperUtils.dataDeHoje);
