@@ -8,6 +8,15 @@ public class ProdutoVO {
 	private Integer id;
 	private TipoEmbalagem_Enum tipoEmbalagem;
 	private TipoProduto_Enum tipoProduto;
+	private double precoUnitario;
+
+	public double getPrecoUnitario() {
+		return precoUnitario;
+	}
+
+	public void setPrecoUnitario(double precoUnitario) {
+		this.precoUnitario = precoUnitario;
+	}
 
 	public Integer getId() {
 		return id;

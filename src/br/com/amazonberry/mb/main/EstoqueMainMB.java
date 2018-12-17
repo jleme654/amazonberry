@@ -1,22 +1,21 @@
 package br.com.amazonberry.mb.main;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import br.com.amazonberry.enums.TipoEmbalagem_Enum;
-import br.com.amazonberry.enums.TipoProduto_Enum;
+import br.com.amazonberry.utils.HelperUtils;
+import br.com.amazonberry.utils.LoaderUtils;
 import br.com.amazonberry.vo.EstoqueVO;
 import br.com.amazonberry.vo.ProdutoVO;
 
 public class EstoqueMainMB {
 
-	static ArrayList<ProdutoVO> listaProdutos = new ArrayList<ProdutoVO>();
+	static ArrayList<ProdutoVO> listaProdutos;// = new ArrayList<ProdutoVO>();
 	static ArrayList<EstoqueVO> listaEstoque = new ArrayList<EstoqueVO>();
-	static Timestamp dataDeHoje = new Timestamp(System.currentTimeMillis());
+	//static Timestamp dataDeHoje = new Timestamp(System.currentTimeMillis());
 
 	static void executa() {
-		listaProdutos = loadProdutos();
+		listaProdutos = LoaderUtils.loadProdutos();
 
 		// imprime lista de produtos cadastrados
 		System.out.println("----------------------------------------------");
@@ -36,7 +35,7 @@ public class EstoqueMainMB {
 			EstoqueVO estoque = new EstoqueVO();
 			estoque.setProduto(vo);
 			estoque.setQtdeProduto(qtdeProduto);
-			estoque.setDataContagem(dataDeHoje);
+			estoque.setDataContagem(HelperUtils.dataDeHoje);
 			
 			listaEstoque.add(estoque);
 		}
@@ -47,30 +46,6 @@ public class EstoqueMainMB {
 		for (EstoqueVO estoqueVO : listaEstoque2) {
 			System.out.println(estoqueVO.toString());
 		}
-	}
-
-	private static ArrayList<ProdutoVO> loadProdutos() {
-		ProdutoVO vo = new ProdutoVO();
-		vo.setId(1);
-		vo.setTipoProduto(TipoProduto_Enum.ACAI);
-		vo.setTipoEmbalagem(TipoEmbalagem_Enum.CAIXA_10LT);
-	
-		ProdutoVO vo2 = new ProdutoVO();
-		vo2.setId(2);
-		vo2.setTipoProduto(TipoProduto_Enum.ACAI);
-		vo2.setTipoEmbalagem(TipoEmbalagem_Enum.CAIXA_5LT);
-
-		ProdutoVO vo3 = new ProdutoVO();
-		vo3.setId(3);
-		vo3.setTipoProduto(TipoProduto_Enum.CREME_ABACAXI_AO_VINHO);
-		vo3.setTipoEmbalagem(TipoEmbalagem_Enum.CAIXA_5LT);
-
-		listaProdutos.add(vo);
-		listaProdutos.add(vo2);
-		listaProdutos.add(vo3);
-
-		print(listaProdutos);
-		return listaProdutos;
 	}
 
 	private static void print(ArrayList<ProdutoVO> listaProdutos) {

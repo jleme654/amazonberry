@@ -4,17 +4,9 @@ import java.sql.Timestamp;
 
 public class EstoqueVO {
 
-	private ProdutoVO produto;
-	private Integer qtdeProduto;
-	private Timestamp dataContagem; // dataDeHoje = new Timestamp(System.currentTimeMillis());
-
-	public Timestamp getDataContagem() {
-		return dataContagem;
-	}
-
-	public void setDataContagem(Timestamp dataContagem) {
-		this.dataContagem = dataContagem;
-	}
+	protected ProdutoVO produto;
+	protected Integer qtdeProduto;
+	protected Timestamp dataContagem; // dataDeHoje = new Timestamp(System.currentTimeMillis());
 
 	public ProdutoVO getProduto() {
 		return produto;
@@ -30,6 +22,14 @@ public class EstoqueVO {
 
 	public void setQtdeProduto(Integer qtdeProduto) {
 		this.qtdeProduto = qtdeProduto;
+	}
+
+	public Timestamp getDataContagem() {
+		return dataContagem;
+	}
+
+	public void setDataContagem(Timestamp dataContagem) {
+		this.dataContagem = dataContagem;
 	}
 
 	@Override
