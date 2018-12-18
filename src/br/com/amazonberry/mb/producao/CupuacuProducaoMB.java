@@ -90,7 +90,7 @@ public class CupuacuProducaoMB {
 		//
 		IngredienteVO vo = new IngredienteVO();
 		vo.setCustoUnitario(getCustoUnitario());
-		vo.setTipoEmbalagem(TipoEmbalagem_Enum.BAG_6_5_KG.getTipo());
+		vo.setTipoEmbalagem(TipoEmbalagem_Enum.BALDE_7LT.getTipo());
 		vo.setId(1);
 		vo.setNome(Ingrediente_Enum.SABORIZANTE.getNome());
 		vo.setQuantidade(1);
@@ -103,7 +103,7 @@ public class CupuacuProducaoMB {
 		//
 		IngredienteVO vo = new IngredienteVO();
 		vo.setCustoUnitario(getCustoUnitario());
-		vo.setTipoEmbalagem(TipoEmbalagem_Enum.ACUCAR_KILO_DEFAULT.getTipo());
+		vo.setTipoEmbalagem(TipoEmbalagem_Enum.POTE_1LT.getTipo());
 		vo.setId(1);
 		vo.setNome(Ingrediente_Enum.ACUCAR.getNome());
 		vo.setQuantidade(18);

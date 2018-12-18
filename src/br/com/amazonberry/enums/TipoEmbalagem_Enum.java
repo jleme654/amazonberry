@@ -2,8 +2,8 @@ package br.com.amazonberry.enums;
 
 public enum TipoEmbalagem_Enum {
 
-	ACUCAR_KILO_DEFAULT (2, "Acucar KILO Default"), 
-	BAG_6_5_KG (3, "BAG 6.5 KG"),
+	//ACUCAR_KILO_DEFAULT (2, "Acucar KILO Default"), 
+	//BAG_6_5_KG (3, "BAG 6.5 KG"),
 	POTE_220ML (1, "Pote de 200 ml"),
 	POTE_500ML (4,"Pote de 500 ml"),
 	POTE_900ML (5, "Pote de 900 ml"),

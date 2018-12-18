@@ -6,18 +6,29 @@ import br.com.amazonberry.enums.TipoProduto_Enum;
 public class ProdutoVO {
 
 	private Integer id;
-	private TipoEmbalagem_Enum tipoEmbalagem;
 	private TipoProduto_Enum tipoProduto;
-	private double precoUnitario;
+	private TipoEmbalagem_Enum tipoEmbalagem;
 
-	public double getPrecoUnitario() {
-		return precoUnitario;
+	/**
+	 * construtores
+	 * 
+	 * @return
+	 */
+	public ProdutoVO(Integer id, TipoProduto_Enum tipoProduto, TipoEmbalagem_Enum tipoEmbalagem) {
+		super();
+		this.id = id;
+		this.tipoProduto = tipoProduto;
+		this.tipoEmbalagem = tipoEmbalagem;
 	}
 
-	public void setPrecoUnitario(double precoUnitario) {
-		this.precoUnitario = precoUnitario;
+	public ProdutoVO() {
 	}
 
+	/**
+	 * getters and setters
+	 * 
+	 * @return
+	 */
 	public Integer getId() {
 		return id;
 	}
@@ -44,7 +55,7 @@ public class ProdutoVO {
 
 	@Override
 	public String toString() {
-		return "ProdutoVO [id=" + id + ", tipoEmbalagem=" + tipoEmbalagem + ", tipoProduto=" + tipoProduto + "]";
+		return "ProdutoVO [id=" + id + ", tipoProduto=" + tipoProduto + ", tipoEmbalagem=" + tipoEmbalagem + "]";
 	}
 
 }

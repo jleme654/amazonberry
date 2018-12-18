@@ -10,6 +10,40 @@ import br.com.amazonberry.vo.VendaVO;
 
 public class LoaderUtils {
 	
+	public static void main(String[] args) {
+		ArrayList<ProdutoVO> lista = getAllProducts();
+		for (ProdutoVO produtoVO : lista) {
+			System.out.println(produtoVO);
+		}
+	}
+	
+	public static ArrayList<ProdutoVO> getAllProducts(){
+		ArrayList<ProdutoVO> allProducts = new ArrayList<>();	
+		//Acai
+		int count = 0;
+		for (TipoEmbalagem_Enum tipoEmb : TipoEmbalagem_Enum.values()) {
+			// ProdutoVO(Integer id, TipoEmbalagem_Enum tipoEmbalagem, TipoProduto_Enum tipoProduto) {
+			ProdutoVO p = new ProdutoVO(count++, TipoProduto_Enum.ACAI, tipoEmb) ;			
+			allProducts.add(p);
+		}
+		
+		//Cremes
+		for (TipoProduto_Enum tipoProd : TipoProduto_Enum.values()) {
+			if (!tipoProd.equals(TipoProduto_Enum.ACAI)) {
+				ProdutoVO p = new ProdutoVO(count++, tipoProd, TipoEmbalagem_Enum.POTE_2LT) ;			
+				allProducts.add(p);
+				
+				ProdutoVO p2 = new ProdutoVO(count++, tipoProd, TipoEmbalagem_Enum.CAIXA_5LT) ;			
+				allProducts.add(p2);
+				
+				ProdutoVO p3 = new ProdutoVO(count++, tipoProd, TipoEmbalagem_Enum.CAIXA_10LT) ;			
+				allProducts.add(p3);
+			}
+		}
+		return allProducts;
+	}
+    
+	
 	public static ProdutoVO getProduto1() {
 		ProdutoVO produto = new ProdutoVO();
 		produto.setId(1);
