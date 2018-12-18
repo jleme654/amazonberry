@@ -22,21 +22,25 @@ public class LoaderUtils {
 		//Acai
 		int count = 0;
 		for (TipoEmbalagem_Enum tipoEmb : TipoEmbalagem_Enum.values()) {
+			count++;
 			// ProdutoVO(Integer id, TipoEmbalagem_Enum tipoEmbalagem, TipoProduto_Enum tipoProduto) {
-			ProdutoVO p = new ProdutoVO(count++, TipoProduto_Enum.ACAI, tipoEmb) ;			
+			ProdutoVO p = new ProdutoVO(count, TipoProduto_Enum.ACAI, tipoEmb) ;			
 			allProducts.add(p);
 		}
 		
 		//Cremes
 		for (TipoProduto_Enum tipoProd : TipoProduto_Enum.values()) {
 			if (!tipoProd.equals(TipoProduto_Enum.ACAI)) {
-				ProdutoVO p = new ProdutoVO(count++, tipoProd, TipoEmbalagem_Enum.POTE_2LT) ;			
+				count++;
+				ProdutoVO p = new ProdutoVO(count, tipoProd, TipoEmbalagem_Enum.POTE_2LT) ;			
 				allProducts.add(p);
 				
-				ProdutoVO p2 = new ProdutoVO(count++, tipoProd, TipoEmbalagem_Enum.CAIXA_5LT) ;			
+				count++;
+				ProdutoVO p2 = new ProdutoVO(count, tipoProd, TipoEmbalagem_Enum.CAIXA_5LT) ;			
 				allProducts.add(p2);
 				
-				ProdutoVO p3 = new ProdutoVO(count++, tipoProd, TipoEmbalagem_Enum.CAIXA_10LT) ;			
+				count++;
+				ProdutoVO p3 = new ProdutoVO(count, tipoProd, TipoEmbalagem_Enum.CAIXA_10LT) ;			
 				allProducts.add(p3);
 			}
 		}
