@@ -6,19 +6,37 @@ public class VendaVO extends EstoqueVO {
 		super();
 	}
 
-	private double valorProduto;
+	private double valorUnitario;
+	private double valorTotal;
 
-	public double getValorProduto() {
-		return valorProduto;
+	/***
+	 * getters and setters
+	 * @return
+	 */
+	public double getValorUnitario() {
+		return valorUnitario;
 	}
 
-	public void setValorProduto(double valorProduto) {
-		this.valorProduto = valorProduto;
+	public void setValorUnitario(double valorUnitarioVenda) {
+		this.valorUnitario = valorUnitarioVenda;
+	}
+
+	public double getValorTotal() {
+		if(qtdeProduto != null && qtdeProduto >0 ) {
+			return qtdeProduto*valorUnitario;
+		}
+		return valorTotal;
+	}
+
+	public void setValorTotal(double valorTotalProduto) {
+		this.valorTotal = valorTotalProduto;
 	}
 
 	@Override
 	public String toString() {
-		return "VendaVO [produto=" + produto + ", qtdeProduto=" + qtdeProduto + ", dataContagem=" + dataContagem + "] valorProduto=" + valorProduto +" ]";
+		return "VendaVO [produto=" + produto + ", qtdeProduto="
+				+ qtdeProduto + ", valorUniario=" +valorUnitario +", valorTotal="+valorTotal 
+				+ ", dataContagem=" + dataContagem + "]";
 	}
 
 }

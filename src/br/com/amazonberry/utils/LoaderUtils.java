@@ -23,9 +23,13 @@ public class LoaderUtils {
 	private static final String arquivoclientes = "/home/julio/arquivos/clientes_version.xls";// Lista-pop-rua-2018.xls";
 
 	public static void main(String[] args) {
-		ArrayList<ProdutoVO> lista = getAllProducts();
+		/*ArrayList<ProdutoVO> lista = getAllProducts();
 		for (ProdutoVO produtoVO : lista) {
 			System.out.println(produtoVO);
+		}*/
+		ArrayList<ClienteVO> lista = getAllClients();
+		for (ClienteVO clienteVO : lista) {
+			System.out.println(clienteVO);
 		}
 	}
 
@@ -191,7 +195,7 @@ public class LoaderUtils {
 		return listaProdutos;
 	}
 
-	public static ArrayList<VendaVO> loadVendas() {
+	public static ArrayList<VendaVO> getVendas() {
 		ArrayList<VendaVO> vendas = new ArrayList<>();
 
 		VendaVO venda = new VendaVO();
@@ -200,28 +204,27 @@ public class LoaderUtils {
 		int qtdeProduto = 51;
 		double valorUnitarioProduto = 60;
 		venda.setQtdeProduto(qtdeProduto);
-		venda.setValorProduto(getValorProduto(qtdeProduto, valorUnitarioProduto));
+		venda.setValorUnitario(valorUnitarioProduto);
+		venda.setValorTotal(HelperUtils.getValorProduto(venda.getQtdeProduto(), venda.getValorUnitario()));
 
 		VendaVO venda2 = new VendaVO();
 		venda2.setDataContagem(HelperUtils.dataDeHoje);
 		venda2.setProduto(getProduto2());
 		venda2.setQtdeProduto(8);
-		venda2.setValorProduto(getValorProduto(8, 90));
+		venda2.setValorUnitario(90);
+		venda2.setValorTotal(HelperUtils.getValorProduto(venda2.getQtdeProduto(), venda2.getValorUnitario()));
 
 		VendaVO venda3 = new VendaVO();
 		venda3.setDataContagem(HelperUtils.dataDeHoje);
 		venda3.setProduto(getProduto3());
 		venda3.setQtdeProduto(10);
-		venda3.setValorProduto(getValorProduto(10, 15));
+		venda3.setValorUnitario(15);
+		venda3.setValorTotal(HelperUtils.getValorProduto(venda3.getQtdeProduto(), venda3.getValorUnitario()));
 
 		vendas.add(venda);
 		vendas.add(venda2);
 		vendas.add(venda3);
 		return vendas;
-	}
-
-	private static double getValorProduto(int qtde, double valor) {
-		return (qtde * valor);
 	}
 
 }

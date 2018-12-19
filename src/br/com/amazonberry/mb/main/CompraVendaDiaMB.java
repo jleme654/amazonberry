@@ -25,7 +25,7 @@ public class CompraVendaDiaMB {
 	    System.out.println();
 	    System.out.println("Lista de Vendas");
 	    System.out.println("---------------------");
-		listaVendas = LoaderUtils.loadVendas();
+		listaVendas = LoaderUtils.getVendas();
 		for (VendaVO venda : listaVendas) {
 			System.out.println(venda);
 		}
