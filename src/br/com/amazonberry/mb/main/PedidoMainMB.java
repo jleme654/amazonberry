@@ -2,8 +2,10 @@ package br.com.amazonberry.mb.main;
 
 import java.util.ArrayList;
 
+import br.com.amazonberry.utils.HelperUtils;
 import br.com.amazonberry.utils.LoaderUtils;
 import br.com.amazonberry.vo.ClienteVO;
+import br.com.amazonberry.vo.EstoqueVO;
 import br.com.amazonberry.vo.PedidoVO;
 import br.com.amazonberry.vo.VendaVO;
 
@@ -12,6 +14,15 @@ public class PedidoMainMB {
 	
 	public static void main(String[] args) {
 		System.out.println(geraPedido());
+		ArrayList<EstoqueVO> estoqueInicial = LoaderUtils.loadEstoque();
+		ArrayList<VendaVO> vendas = geraPedido().getVenda();
+		
+		System.out.println(HelperUtils.lineSeparator);
+		System.out.println("Novo estoque apos venda: ");
+		ArrayList<EstoqueVO> novoEstoqueAposVenda = CompraVendaDiaMB.calculaEstoqueAposVenda(estoqueInicial , vendas);
+		for (EstoqueVO estoqueVO : novoEstoqueAposVenda) {
+			System.out.println(estoqueVO);
+		}
 	}
 
 	private static PedidoVO geraPedido() {

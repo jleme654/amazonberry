@@ -82,7 +82,7 @@ public class LoaderUtils {
 				if (id == 343) {
 					break;
 				}
-				System.out.println();
+				//System.out.println();
 			}
 			arquivo.close();
 		} catch (IOException e) {
@@ -153,7 +153,7 @@ public class LoaderUtils {
 		EstoqueVO estoque = new EstoqueVO();
 		estoque.setDataContagem(HelperUtils.dataDeHoje);
 		estoque.setProduto(getProduto1());
-		estoque.setQtdeProduto(50);
+		estoque.setQtdeProduto(150);
 
 		EstoqueVO estoque2 = new EstoqueVO();
 		estoque2.setDataContagem(HelperUtils.dataDeHoje);

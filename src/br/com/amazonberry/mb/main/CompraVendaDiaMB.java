@@ -39,7 +39,7 @@ public class CompraVendaDiaMB {
 		}
 	}
 
-	private static ArrayList<EstoqueVO> calculaEstoqueAposVenda(ArrayList<EstoqueVO> estoqueInicial,ArrayList<VendaVO> vendas) {
+	public static ArrayList<EstoqueVO> calculaEstoqueAposVenda(ArrayList<EstoqueVO> estoqueInicial,ArrayList<VendaVO> vendas) {
 		ArrayList<EstoqueVO>  estoqueFinal = new ArrayList<>();
 		for (EstoqueVO estoque : estoqueInicial) {
 			for (VendaVO venda : vendas) {
