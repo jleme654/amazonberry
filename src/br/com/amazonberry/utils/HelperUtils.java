@@ -11,4 +11,15 @@ public class HelperUtils {
 		return (qtde * valor);
 	}
 
+	/**
+	 * @param cnpjCpf
+	 * @return
+	 */
+	public static boolean isCPF(String cnpjCpf) {
+		if (cnpjCpf.toString().length() == 14) { 
+			return true;
+		}
+		return false;
+	}
+
 }
