@@ -29,7 +29,7 @@ public class ClienteMaxScallaMB {
 	
 	static ArrayList<ClienteVO> clientes = LoaderUtils.getAllClients();
 	static ArrayList<ClienteMaxScallaVO> clientesMax = new ArrayList<>();
-	private static final String fileName = "/home/julio/arquivos/lista_clientes_max.xls";
+	static final String fileName = "/home/julio/arquivos/lista_clientes_max.xls";
 	
 	static ArrayList<ClienteMaxScallaVO> geraListaClientesMax (ArrayList<ClienteVO> c){
 		for (ClienteVO item : c) {
@@ -126,7 +126,7 @@ public class ClienteMaxScallaMB {
           }
             
           try {
-              FileOutputStream out = new FileOutputStream(new File(ClienteMaxScallaMB.fileName));
+              FileOutputStream out = new FileOutputStream(new File(fileName));
               workbook.write(out);
               out.close();
               System.out.println("Arquivo Excel criado com sucesso!");
