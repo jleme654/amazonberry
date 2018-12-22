@@ -126,4 +126,12 @@ public class ProdutoMaxScallaVO {
 		CodigoBarras = codigoBarras;
 	}
 
+	@Override
+	public String toString() {
+		return "ProdutoMaxScallaVO [DescricaoProduto=" + DescricaoProduto + ", Embalagem=" + Embalagem + ", Grupo="
+				+ Grupo + ", Fabricante=" + Fabricante + ", CodigoFabricante=" + CodigoFabricante + ", PrecoCusto="
+				+ PrecoCusto + ", PrecoVenda=" + PrecoVenda + ", ICMS=" + ICMS + ", MVA=" + MVA + ", CST=" + CST
+				+ ", CSOSN=" + CSOSN + ", NCM=" + NCM + ", CodigoBarras=" + CodigoBarras + "]";
+	}
+
 }
