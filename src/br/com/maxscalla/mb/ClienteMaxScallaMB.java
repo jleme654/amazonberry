@@ -11,6 +11,8 @@ import java.util.ArrayList;
 
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
 
 import br.com.amazonberry.utils.HelperUtils;
 import br.com.amazonberry.utils.LoaderUtils;
@@ -36,23 +38,29 @@ public class ClienteMaxScallaMB {
 			vomax.setBairro("");
 			vomax.setCEP("");
 			vomax.setCidade(item.getCidade());
-			if(!isCPF)
-				vomax.setCNPJ(item.getCnpjCpf());
 			vomax.setComplementoEndereço("");
-			if (isCPF) 
-				vomax.setCPF(item.getCnpjCpf());
+			if (isCPF) { 
+				vomax.setCPF(item.getCnpjCpf().replace("a", ""));
+				vomax.setCNPJ("");
+				vomax.setPessoaFisicaJuridica("F");
+				vomax.setRazaoSocial("");
+			}else {
+				vomax.setCPF("");
+				vomax.setCNPJ(item.getCnpjCpf().replace("a", ""));
+				vomax.setPessoaFisicaJuridica("J");
+				vomax.setRazaoSocial("");
+			}
 			vomax.setEndereco(item.getEndereco());
 			vomax.setEstado("SP");
 			vomax.setFantasia(item.getNome());
 			vomax.setInscricaoSocial("");
 			vomax.setNumero("");
-			if(!isCPF)
-				vomax.setPessoaFisicaJuridica(item.getNome());
-			else
-				vomax.setPessoaFisicaJuridica("");
-			vomax.setRazaoSocial(item.getNome());
 			vomax.setRG("");
-			vomax.setTelefoneCelular(item.getTelefone());
+			if (!item.getTelefone().equals("")) {				
+				vomax.setTelefoneCelular(item.getTelefone().replace(".", "").substring(0, (item.getTelefone().length()-3)));
+			}else {
+				vomax.setTelefoneCelular("");
+			}
 			vomax.setTelefoneFixo("");
 			clientesMax.add(vomax);
 		}
@@ -62,38 +70,60 @@ public class ClienteMaxScallaMB {
 	
 	static void geraExcelClientes(ArrayList<ClienteMaxScallaVO> c) {
 		  HSSFWorkbook workbook = new HSSFWorkbook();
-          HSSFSheet sheetAlunos = workbook.createSheet("Clientes Max Scalla");
+          HSSFSheet sheetClientes = workbook.createSheet("Clientes Max Scalla");
             
-//          List<Aluno> listaAlunos = new ArrayList<Aluno>();
-//          listaAlunos.add(new Aluno("Eduardo", "9876525", 7, 8, 0, false));
-//          listaAlunos.add(new Aluno("Luiz", "1234466", 5, 8, 0, false));
-//          listaAlunos.add(new Aluno("Bruna", "6545657", 7, 6, 0, false));
-//          listaAlunos.add(new Aluno("Carlos", "3456558", 10, 3, 0, false));
-//          listaAlunos.add(new Aluno("Sonia", "6544546", 7, 8, 0, false));
-//          listaAlunos.add(new Aluno("Brianda", "3234535", 6, 5, 0, false));
-//          listaAlunos.add(new Aluno("Pedro", "4234524", 7, 5, 0, false));
-//          listaAlunos.add(new Aluno("Julio", "5434513", 7, 2, 0, false));
-//          listaAlunos.add(new Aluno("Henrique", "6543452", 7, 8, 0, false));
-//          listaAlunos.add(new Aluno("Fernando", "4345651", 5, 8, 0, false)); 
-//          listaAlunos.add(new Aluno("Vitor", "4332341", 7, 9, 0, false));                  
-            
-//          int rownum = 0;
-//          for (Aluno aluno : listaAlunos) {
-//              Row row = sheetAlunos.createRow(rownum++);
-//              int cellnum = 0;
-//              Cell cellNome = row.createCell(cellnum++);
-//              cellNome.setCellValue(aluno.getNome());
-//              Cell cellRa = row.createCell(cellnum++);
-//              cellRa.setCellValue(aluno.getRa());
-//              Cell cellNota1 = row.createCell(cellnum++);
-//              cellNota1.setCellValue(aluno.getNota1());
-//              Cell cellNota2 = row.createCell(cellnum++);
-//              cellNota2.setCellValue(aluno.getNota2());
-//              Cell cellMedia = row.createCell(cellnum++);
-//              cellMedia.setCellValue((aluno.getNota1() + aluno.getNota2()) / 2);
-//              Cell cellAprovado =row.createCell(cellnum++);
-//              cellAprovado.setCellValue(cellMedia.getNumericCellValue() >= 6);
-//          }
+          int rownum = 0;
+          for (ClienteMaxScallaVO item : c) {
+              Row row = sheetClientes.createRow(rownum++);
+              int cellnum = 0;
+              Cell cell1 = row.createCell(cellnum++);
+              cell1.setCellValue(item.getFantasia());
+              
+              Cell cellRa = row.createCell(cellnum++);
+              cellRa.setCellValue(item.getRazaoSocial());
+              
+              Cell cellNota1 = row.createCell(cellnum++);
+              cellNota1.setCellValue(item.getPessoaFisicaJuridica());
+              
+              Cell cellNota2 = row.createCell(cellnum++);
+              cellNota2.setCellValue(item.getCNPJ());
+              
+              Cell cellMedia = row.createCell(cellnum++);
+              cellMedia.setCellValue(item.getInscricaoSocial());
+              
+              Cell cellAprovado =row.createCell(cellnum++);
+              cellAprovado.setCellValue(item.getCPF());
+              
+              Cell cellAprovado2 =row.createCell(cellnum++);
+              cellAprovado2.setCellValue(item.getRG());
+              
+              Cell cellAprovado3 =row.createCell(cellnum++);
+              cellAprovado3.setCellValue(item.getTelefoneFixo());
+              
+              Cell cellAprovado4 =row.createCell(cellnum++);
+              cellAprovado4.setCellValue(item.getTelefoneCelular());
+              
+              Cell cellAprovado5 =row.createCell(cellnum++);
+              cellAprovado5.setCellValue(item.getEndereco());
+              
+              Cell cellAprovado6 =row.createCell(cellnum++);
+              cellAprovado6.setCellValue(item.getNumero());
+              
+              Cell cellAprovado7 =row.createCell(cellnum++);
+              cellAprovado7.setCellValue(item.getBairro());
+              
+              Cell cellAprovado8 =row.createCell(cellnum++);
+              cellAprovado8.setCellValue(item.getCidade());
+              
+              Cell cellAprovado9 =row.createCell(cellnum++);
+              cellAprovado9.setCellValue(item.getEstado());
+              
+              Cell cellAprovado10 =row.createCell(cellnum++);
+              cellAprovado10.setCellValue(item.getCEP());
+              
+              Cell cellAprovado11 =row.createCell(cellnum++);
+              cellAprovado11.setCellValue(item.getComplementoEndereço());
+          }
             
           try {
               FileOutputStream out = new FileOutputStream(new File(ClienteMaxScallaMB.fileName));

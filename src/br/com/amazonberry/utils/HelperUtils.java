@@ -16,7 +16,7 @@ public class HelperUtils {
 	 * @return
 	 */
 	public static boolean isCPF(String cnpjCpf) {
-		if (cnpjCpf.toString().length() == 14) { 
+		if (cnpjCpf.toString().length() == 15 || cnpjCpf.equals("")) { 
 			return true;
 		}
 		return false;
